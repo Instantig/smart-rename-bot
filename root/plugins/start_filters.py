@@ -21,13 +21,10 @@ async def start_msg(c,m):
             quote=True, 
             reply_markup=InlineKeyboardMarkup([[
                InlineKeyboardButton(
-               "Owner ", 
-               url=f"https://t.me/{Config.OWNER_USERNAME}")
+               "🔮 Other Bots 🔮", 
+               url=f"https://t.me/robo_glitch")
              ]]) , 
             disable_web_page_preview=True
-               InlineKeyboardButton(
-               "🔮 Other Bots 🔮", 
-               url=f"https://t.me/rbo_glitch"
       ) 
     except Exception as e:
         log.error(str(e))
