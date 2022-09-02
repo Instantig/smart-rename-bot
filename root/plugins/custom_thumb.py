@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 @Client.on_message(filters.photo)
 async def save_photo(c,m):
-    v = await m.reply_text("Saving Thumbnail",True)
+    v = await m.reply_text("**Sᴀᴠɪɴɢ Tʜᴜᴍʙɴᴀɪʟ ᴍᴇʀɪ ɪᴀᴀɴ** 💋",True)
     if m.media_group_id is not None:
         download_location = Config.DOWNLOAD_LOCATION + "/thumb/" + str(m.from_user.id) + "/" + str(m.media_group_id) + "/"
         os.makedirs(download_location, exist_ok=True)
@@ -46,12 +46,12 @@ async def delete_thumbnail(c,m):
     except Exception as e:
         log.error(f"Error in removing thumb {e}")
         pass
-    await m.reply_text("Thumbnail was removed Successfully 😋",quote=True)
+    await m.reply_text("💔 **Tʜᴜᴍʙɴᴀɪʟ ʀᴇᴍᴏᴠᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ 😒**",quote=True)
 
 @Client.on_message(filters.command(["showthumb"]))
 async def show_thumbnail(c,m):
     thumb_image_path = Config.DOWNLOAD_LOCATION + "/thumb/" + str(m.from_user.id) + ".jpg"
-    msgg = await m.reply_text("Checking Thumbnail...",quote=True)
+    msgg = await m.reply_text("👀 **Cʜᴇᴄᴋɪɴɢ Tʜᴜᴍʙɴᴀɪʟ**...⌛",quote=True)
 
     if not os.path.exists(thumb_image_path):
         mes = await thumb(m.from_user.id)
@@ -64,7 +64,7 @@ async def show_thumbnail(c,m):
 
     if thumb_image_path is None:
         try:
-            await msgg.edit_text("No Saved Thumbnail Found!!")
+            await msgg.edit_text("👻 **Nᴏ Tʜᴜᴍʙɴᴀɪʟ Fᴏᴜɴᴅ**!!")
         except:
               pass               
     else:
@@ -76,7 +76,7 @@ async def show_thumbnail(c,m):
 
         await m.reply_photo(
         photo=thumb_image_path,
-        caption="This is the Saved Thumbnail!!!\nYou Can delete this by using \n/deletethumb Command",
+        caption="**Tʜɪs Yᴏᴜʀ Tʜᴜᴍʙɴᴀɪʟ sᴏʀ** 😎\n🗑 **Yᴏᴜ Cᴀɴ ᴅᴇʟᴇᴛᴇ ᴛʜɪs ʙʏ ᴜsɪɴɢ **\n/deletethumb **Command**",
         quote=True
     )
 
