@@ -148,7 +148,7 @@ async def uploader(bot,file, update, msg,as_file=False):
         	      	     start_time
         	      	     ))
             except FloodWait as e:
-                logger.info(f"Got Floodwait of {e.value} seconds so me sleeping ")
+                logger.info(f"Got Floodwait of {e.value} seconds so me sleeping 😴💤 ")
                 await asyncio.sleep(e.value)
                 return await uploader(bot,file, update, msg,as_file=False)
             except Exception as er:
