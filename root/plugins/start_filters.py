@@ -25,6 +25,9 @@ async def start_msg(c,m):
                url=f"https://t.me/{Config.OWNER_USERNAME}")
              ]]) , 
             disable_web_page_preview=True
+               InlineKeyboardButton(
+               "🔮 Other Bots 🔮", 
+               url=f"https://t.me/rbo_glitch"
       ) 
     except Exception as e:
         log.error(str(e))
