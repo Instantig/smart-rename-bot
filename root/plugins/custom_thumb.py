@@ -10,13 +10,14 @@ import  os, logging
 from pyrogram import Client,filters
 from root.config import Config
 from root.utils import *
+ 
 
 
 log = logging.getLogger(__name__)
 
 @Client.on_message(filters.photo)
 async def save_photo(c,m):
-    v = await m.reply_text("**Sᴀᴠɪɴɢ Tʜᴜᴍʙɴᴀɪʟ ᴍᴇʀɪ ɪᴀᴀɴ** 💋",True)
+    v = await m.reply_text("Sᴀᴠɪɴɢ Tʜᴜᴍʙɴᴀɪʟ ᴍᴇʀɪ ɪᴀᴀɴ 💋",True)
     if m.media_group_id is not None:
         download_location = Config.DOWNLOAD_LOCATION + "/thumb/" + str(m.from_user.id) + "/" + str(m.media_group_id) + "/"
         os.makedirs(download_location, exist_ok=True)
@@ -33,7 +34,7 @@ async def save_photo(c,m):
             file_name=download_location
         ) 
         try:
-           await v.edit_text("**🧞‍♀ Tʜᴜᴍʙɴᴀɪʟ Sᴀᴠᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ ✔**")
+           await v.edit_text("🧞‍♀ Tʜᴜᴍʙɴᴀɪʟ Sᴀᴠᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ ✔")
         except Exception as e:
           log.error(f"#Error {e}")
 
@@ -46,12 +47,12 @@ async def delete_thumbnail(c,m):
     except Exception as e:
         log.error(f"Error in removing thumb {e}")
         pass
-    await m.reply_text("💔 **Tʜᴜᴍʙɴᴀɪʟ ʀᴇᴍᴏᴠᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ 😒**",quote=True)
+    await m.reply_text("💔 Tʜᴜᴍʙɴᴀɪʟ ʀᴇᴍᴏᴠᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ 😒",quote=True)
 
 @Client.on_message(filters.command(["showthumb"]))
 async def show_thumbnail(c,m):
     thumb_image_path = Config.DOWNLOAD_LOCATION + "/thumb/" + str(m.from_user.id) + ".jpg"
-    msgg = await m.reply_text("👀 **Cʜᴇᴄᴋɪɴɢ Tʜᴜᴍʙɴᴀɪʟ**...⌛",quote=True)
+    msgg = await m.reply_text("👀 Cʜᴇᴄᴋɪɴɢ Tʜᴜᴍʙɴᴀɪʟ...⌛",quote=True)
 
     if not os.path.exists(thumb_image_path):
         mes = await thumb(m.from_user.id)
