@@ -19,8 +19,8 @@ INSERTION_LOCK = threading.RLock()
 
 class Thumbnail(BASE):
     __tablename__ = "thumbnail"
-    id = Column(Integer, primary_key=True)
-    msg_id = Column(Integer)
+    id = Column(bigint, primary_key=True)
+    msg_id = Column(bigint)
 
     def __init__(self, id, msg_id):
         self.id = id
